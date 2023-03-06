@@ -1,0 +1,241 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  /**** Text ****/
+  --kl-txt-blauw-: hsl(238, 29%, 16%);
+  --kl-txt-rood-: hsl(14, 88%, 65%);
+
+  /**** Background gradient: ****/
+  --kl-violet-: hsl(273, 75%, 66%);
+  --kl-blauw-: hsl(240, 73%, 65%);
+
+  /**** Text ****/
+  --kl-grijsblauw-800: hsl(237, 12%, 33%);
+  --kl-grijsblauw-500: hsl(240, 6%, 50%);
+
+  /**** Dividers ****/
+  --kl-grijsblauw-100: hsl(240, 5%, 91%);
+
+  font-size: 12px;
+
+  /** Font Weight **/
+  --fw-400-: 400;
+  --fw-700-: 700;
+
+  /** rotation **/
+  --style-degrees-: 0deg;
+}
+
+/** Het volledig computerscherm **/
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.groot-scherm {
+  display: none;
+}
+.wrapper {
+  background: linear-gradient(var(--kl-violet-), var(--kl-blauw-));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-container {
+  z-index: 0;
+  min-width: 320px;
+  background-color: whitesmoke;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12rem;
+  position: relative;
+  bottom: 5rem;
+}
+.illustration-mobile {
+  z-index: 2;
+  position: relative;
+  top: 11rem;
+  width: 80%;
+}
+.bg-pattern-mobile {
+  z-index: 1;
+  position: relative;
+  top: 4rem;
+  width: 80%;
+}
+
+.flex-item-center {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.rechterkant {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.accordion {
+  background-color: #eee;
+  color: var(--kl-grijsblauw-800);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  position: relative;
+}
+.icon::after {
+  content: url("../images/icon-arrow-down.svg");
+  rotate: var(--style-degrees-);
+  width: 8px;
+  height: 4px;
+  position: absolute;
+  right: 1em;
+}
+
+.niet-tonen {
+  display: none;
+  overflow: hidden;
+}
+.tonen {
+  display: block;
+  overflow: hidden;
+  color: var(--kl-grijsblauw-500);
+  line-height: 1.4;
+  text-align: left;
+  max-width: 25rem;
+  padding: 0 18px;
+}
+@media screen and (min-width: 1024px) {
+  .illustration-mobile,
+  .bg-pattern-mobile,
+  .flex-item-center {
+    display: none;
+  }
+  .groot-scherm {
+    display: block;
+  }
+  /** Het volledig computerscherm **/
+  body {
+    font-family: "Kumbh Sans", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /** De canvas waarin we werken (1440 x 900) **/
+  .wrapper {
+    position: relative;
+    /** Als we een display grid in the parent zetten met **/
+    /*  align-content: center en justify-content: center; **/
+    /** dan valt of staat alles afhankelijk van een      **/
+    /** grootte die gegeven wordt aan het eerste child   **/
+    /*  20 cm op een 1920x1080 scherm */
+    width: 1440px;
+    height: 768px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    /* background: linear-gradient(var(--kl-violet-), var(--kl-blauw-)); */
+    /** In onze wrapper hebben we dan onze flex-container **/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+  }
+  .flex-container {
+    width: 64%;
+    background-color: whitesmoke;
+    border-radius: 16px;
+    /** In onze flex-container hebben we 2 children **/
+    /** flex-item-links en flex-item-rechts **/
+    display: flex;
+    flex-direction: row; /* default */
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    bottom: auto;
+  }
+
+  .flex-item-links {
+    position: relative;
+    flex-basis: 460px;
+    color: var(--kl-lichtblauw-);
+    border-radius: 2rem;
+    overflow: hidden;
+    row-gap: 2rem;
+    padding: 3rem;
+  }
+
+  .illustration-desktop {
+    position: absolute;
+    right: 6rem;
+    z-index: 2;
+  }
+
+  .bg-pattern-desktop {
+    position: relative;
+    right: 5.5rem;
+    z-index: 1;
+  }
+  .illustration-box-desktop {
+    position: absolute;
+    bottom: 22rem;
+    left: 13.5rem;
+    z-index: 4;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .flex-item-rechts {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-basis: 460px;
+    row-gap: 0.75em;
+  }
+
+  .accordion {
+    background-color: #eee;
+    color: var(--kl-grijsblauw-800);
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    border: none;
+    text-align: left;
+    outline: none;
+    position: relative;
+  }
+  .icon::after {
+    content: url("../images/icon-arrow-down.svg");
+    rotate: var(--style-degrees-);
+    width: 8px;
+    height: 4px;
+    position: absolute;
+    right: 1em;
+  }
+
+  .niet-tonen {
+    display: none;
+    overflow: hidden;
+  }
+  .tonen {
+    display: block;
+    overflow: hidden;
+    color: var(--kl-grijsblauw-500);
+    line-height: 1.4;
+    text-align: left;
+    max-width: 27.5rem;
+    padding: 0px;
+  }
+}

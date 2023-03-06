@@ -1,0 +1,18 @@
+const myDiv = document.querySelectorAll(".faq p");
+const buttons = document.getElementsByTagName("button");
+const eAccordion = document.getElementsByClassName("accordion");
+const eIcons = document.querySelectorAll(".icon");
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function () {
+    if (myDiv[i].className == "niet-tonen") {
+      myDiv[i].className = "tonen";
+      eAccordion[i].style.fontWeight = "800";
+      eIcons[i].style.setProperty("--style-degrees-", "180deg");
+    } else {
+      myDiv[i].className = "niet-tonen";
+      eAccordion[i].style.fontWeight = "400";
+      eIcons[i].style.setProperty("--style-degrees-", "0deg");
+    }
+  });
+}
